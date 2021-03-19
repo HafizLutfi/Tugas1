@@ -21,8 +21,8 @@ public class main {
 		double angsuranBunga = platfon *sukuBunga;
 		double totalAngsuran;
 			for (double i = lamaPinjaman; i >= 1; i--) {
-			totalAngsuran = platfon*(sukuBunga/12)/(1-(Math.pow(1+(sukuBunga/12),-i))) ;
-			for (int j = 0; j < lamaPinjaman; j++) {	
+			totalAngsuran = platfon*(sukuBunga/12)/(1-(Math.pow(1+(sukuBunga/12),-i))) ;	
+			System.out.println("Angsura ke-"+i);
 			System.out.println("Besar angsuran= " + totalAngsuran);
 			double angsuranPokok= totalAngsuran - angsuranBunga;
 			System.out.println("Angsuran Pokok =" +angsuranPokok);
@@ -32,7 +32,7 @@ public class main {
 			
 			sisaPinjaman -= totalAngsuran;
 			angsuranBunga = sisaPinjaman*sukuBunga;
-			}
+			
 			}
 		
 	
