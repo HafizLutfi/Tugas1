@@ -17,21 +17,25 @@ public class main {
 		double sukuBunga = scan.nextDouble();
 		System.out.println("Masukan lama Pinjaman :");
 		double lamaPinjaman = scan.nextDouble();
-		
-		
-			for (int i = 1; i <= lamaPinjaman; i++) {
-			System.out.println("Angsuran Ke "+i);
-			double totalAngsuran = platfon*(sukuBunga/12)/(1-(Math.pow(1+(sukuBunga/12),-i))) ;
-			System.out.println("Total Angsuran= " + totalAngsuran);
-			double angsuranBunga = platfon*sukuBunga;
-			double angsuranPokok= platfon - angsuranBunga;
-			double sisaPinjaman = platfon- angsuranPokok;
+		double sisaPinjaman = platfon;
+		double angsuranBunga = platfon *sukuBunga;
+		double totalAngsuran;
+			for (double i = lamaPinjaman; i >= 1; i--) {
+			totalAngsuran = platfon*(sukuBunga/12)/(1-(Math.pow(1+(sukuBunga/12),-i))) ;
+			for (int j = 0; j < lamaPinjaman; j++) {	
+			System.out.println("Besar angsuran= " + totalAngsuran);
+			double angsuranPokok= totalAngsuran - angsuranBunga;
 			System.out.println("Angsuran Pokok =" +angsuranPokok);
 			System.out.println("Angsuran Bunga =" +angsuranBunga);
 			System.out.println("Sisa Pinjaman = "+sisaPinjaman);
 			System.out.println("");
 			
+			sisaPinjaman -= totalAngsuran;
+			angsuranBunga = sisaPinjaman*sukuBunga;
 			}
+			}
+		
+	
 	}
 
 }
